@@ -21,13 +21,13 @@ for contact in contacts_list[1:]:
     for i in range(len(res)):
         contact[i] = res[i]
 
-    print(contact[5])
+    #print(contact[5])
     #pattern = r'(\+7|8|7)?\s*\(?(\d{3,5})\)?\s*(\d{1,3})[- ]?(\d{2})[- ]?(\d{2})'
-    pattern = r'(\+7|8|7)?\s*\(?(\d{3})\)?\-?\s*(\d{1,3})[- ]?(\d{2})[- ]?(\d{2})\s*?(\D*\s*\d*\))?'
+    pattern = r'(\+7|8|7)?\s*\(?(\d{3})\)?\-?\s*(\d{1,3})[- ]?(\d{2})[- ]?(\d{2})\s*\(?(\D*\s*\d*)?\)?'
     new_pattern = r'+7(\2)\3-\4-\5 \6'
     result = re.sub(pattern, new_pattern,contact[5])
     contact[5] = result
-    print(result)
+    #print(result)
 
     if contact[0] in total:
         n1 = (contact[1] if total[contact[0]][0] == '' else total[contact[0]][0])
